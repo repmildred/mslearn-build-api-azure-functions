@@ -2,6 +2,7 @@ import { app } from "@azure/functions";
 import { CreateProduct } from "./functions/CreateProduct";
 import { DeleteProduct } from "./functions/DeleteProduct";
 import { UpdateProduct } from "./functions/UpdateProduct";
+import { GetProducts } from "./functions/GetProducts";
 
 app.http('CreateProduct', {
   methods: ['POST'],
@@ -22,4 +23,10 @@ app.http('UpdateProduct', {
   route: 'products/{id}',
   authLevel: 'anonymous',
   handler: UpdateProduct
+});
+
+app.http('GetProducts', {
+  methods: ['GET', 'POST'],
+  authLevel: 'anonymous',
+  handler: GetProducts
 });
